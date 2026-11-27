@@ -1,0 +1,43 @@
+name: Build macOS DMG
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies & verify
+        run: |
+          npm install
+          npm run typecheck
+          npm test
+          npm run build
+      - name: Build macOS DMG & ZIP
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+        run: npx electron-builder --mac --publish never
+      - name: Upload macOS artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: HarpStudio-macOS-DMG
+          path: |
+            release/*.dmg
+            release/*.zip
+      - name: Attach macOS builds to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/*.dmg
+            release/*.zip

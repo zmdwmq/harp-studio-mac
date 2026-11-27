@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme='dark'] {
+  --hs-bg: #0c0e14;
+  --hs-panel: #141821;
+  --hs-card: #1b202c;
+  --hs-border: #283042;
+  --hs-text: #f1f5f9;
+  --hs-text-sub: #cbd5e1;
+  --hs-muted: #94a3b8;
+  --hs-accent: #38bdf8;
+}
+
+[data-theme='light'] {
+  --hs-bg: #f1f5f9;
+  --hs-panel: #ffffff;
+  --hs-card: #f8fafc;
+  --hs-border: #cbd5e1;
+  --hs-text: #0f172a;
+  --hs-text-sub: #334155;
+  --hs-muted: #64748b;
+  --hs-accent: #0284c7;
+}
+
+[data-theme='vintage'] {
+  --hs-bg: #120e0a;
+  --hs-panel: #1b150f;
+  --hs-card: #261d15;
+  --hs-border: #443322;
+  --hs-text: #fef3c7;
+  --hs-text-sub: #fde68a;
+  --hs-muted: #b89b78;
+  --hs-accent: #f59e0b;
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', 'Microsoft YaHei UI', 'PingFang SC', system-ui, sans-serif;
+    background-color: var(--hs-bg);
+    color: var(--hs-text);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--hs-panel);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--hs-border);
+    border-radius: 3px;
+  }
+}
+
+/* 主题适配映射（保留暗色默认的同时完整支持亮色、复古与插件自定义主题） */
+[data-theme='light'] .bg-\[\#0c0e14\],
+[data-theme='vintage'] .bg-\[\#0c0e14\],
+[data-theme='plugin'] .bg-\[\#0c0e14\] {
+  background-color: var(--hs-bg) !important;
+}
+
+[data-theme='light'] .bg-\[\#141821\],
+[data-theme='vintage'] .bg-\[\#141821\],
+[data-theme='plugin'] .bg-\[\#141821\] {
+  background-color: var(--hs-panel) !important;
+}
+
+[data-theme='light'] .bg-\[\#1b202c\],
+[data-theme='light'] .bg-\[\#181d28\],
+[data-theme='vintage'] .bg-\[\#1b202c\],
+[data-theme='vintage'] .bg-\[\#181d28\],
+[data-theme='plugin'] .bg-\[\#1b202c\],
+[data-theme='plugin'] .bg-\[\#181d28\] {
+  background-color: var(--hs-card) !important;
+}
+
+[data-theme='light'] .border-\[\#283042\],
+[data-theme='light'] .border-\[\#242c3d\],
+[data-theme='vintage'] .border-\[\#283042\],
+[data-theme='vintage'] .border-\[\#242c3d\],
+[data-theme='plugin'] .border-\[\#283042\],
+[data-theme='plugin'] .border-\[\#242c3d\] {
+  border-color: var(--hs-border) !important;
+}
+
+[data-theme='light'] .text-slate-100,
+[data-theme='light'] .text-slate-200,
+[data-theme='vintage'] .text-slate-100,
+[data-theme='vintage'] .text-slate-200,
+[data-theme='plugin'] .text-slate-100,
+[data-theme='plugin'] .text-slate-200 {
+  color: var(--hs-text) !important;
+}
+
+[data-theme='light'] .text-slate-300,
+[data-theme='vintage'] .text-slate-300,
+[data-theme='plugin'] .text-slate-300 {
+  color: var(--hs-text-sub) !important;
+}
+
+[data-theme='light'] .text-slate-400,
+[data-theme='light'] .text-slate-500,
+[data-theme='vintage'] .text-slate-400,
+[data-theme='vintage'] .text-slate-500,
+[data-theme='plugin'] .text-slate-400,
+[data-theme='plugin'] .text-slate-500 {
+  color: var(--hs-muted) !important;
+}
+
+/* 亮色模式下加深浅色荧光字对比度 */
+[data-theme='light'] .text-sky-300,
+[data-theme='light'] .text-sky-300\/90,
+[data-theme='light'] .text-sky-400 {
+  color: #0284c7 !important;
+}
+
+[data-theme='light'] .text-orange-300,
+[data-theme='light'] .text-orange-300\/90,
+[data-theme='light'] .text-orange-400 {
+  color: #ea580c !important;
+}
+
+[data-theme='light'] .text-emerald-300,
+[data-theme='light'] .text-emerald-400 {
+  color: #059669 !important;
+}
+
+[data-theme='light'] .text-teal-400\/70,
+[data-theme='light'] .text-teal-200 {
+  color: #0d9488 !important;
+}
+
+[data-theme='light'] .bg-slate-800 {
+  background-color: #e2e8f0 !important;
+}
+
+[data-theme='vintage'] input[type='range'] {
+  accent-color: #f59e0b;
+}
+
+[data-theme='light'] input[type='range'] {
+  accent-color: #0284c7;
+}
+
+input[type='range'] {
+  accent-color: var(--hs-accent);
+}

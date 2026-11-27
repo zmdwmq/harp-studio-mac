@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-electron/
+release/
+
+# Logs & caches
+*.log
+npm-debug.log*
+.vite/
+
+# Environment & OS files
+.env
+.env.*
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor & IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Android / Capacitor build artifacts
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/app/src/main/assets/public/

@@ -1,0 +1,95 @@
+{
+  "name": "harp-studio-mac",
+  "version": "0.35.0",
+  "private": true,
+  "description": "HarpStudio macOS · 口琴录音工坊 Mac 版 — 专为口琴玩家打造的现代练琴、伴奏移调与录音工作站",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "test": "vitest run",
+    "dist:win": "npm run build && electron-builder --win",
+    "dist:mac": "npm run build && electron-builder --mac",
+    "cap:sync": "npm run build && npx cap sync android",
+    "electron:dev": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "build": {
+    "appId": "com.harpstudio.app",
+    "productName": "HarpStudio",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "portable",
+        "dir"
+      ]
+    },
+    "portable": {
+      "artifactName": "HarpStudio-Portable-${version}.exe"
+    },
+    "mac": {
+      "icon": "build/icon.png",
+      "category": "public.app-category.music",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "HarpStudio 需要访问麦克风以进行口琴实时音准检测与干声录制。"
+      },
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ]
+    },
+    "dmg": {
+      "artifactName": "HarpStudio-${version}-${arch}.dmg"
+    }
+  },
+  "dependencies": {
+    "@breezystack/lamejs": "^1.2.7",
+    "@capacitor/android": "^8.6.3",
+    "@capacitor/core": "^8.6.3",
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.6.3",
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.0",
+    "electron": "^33.2.0",
+    "electron-builder": "^26.18.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vite-plugin-electron": "^0.28.8",
+    "vite-plugin-electron-renderer": "^0.14.6",
+    "vitest": "^2.1.9",
+    "wait-on": "^8.0.1"
+  }
+}

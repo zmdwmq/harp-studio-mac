@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="55%" stop-color="#131c31"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="coverTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+    <linearGradient id="combGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bgGrad)" stroke="#38bdf8" stroke-opacity="0.35" stroke-width="6"/>
+  <circle cx="256" cy="256" r="176" fill="none" stroke="#38bdf8" stroke-opacity="0.10" stroke-width="2"/>
+  <circle cx="256" cy="256" r="132" fill="none" stroke="#f59e0b" stroke-opacity="0.10" stroke-width="2"/>
+  <g fill="url(#waveGrad)" opacity="0.92">
+    <rect x="116" y="128" width="14" height="36" rx="7"/>
+    <rect x="146" y="106" width="14" height="58" rx="7"/>
+    <rect x="176" y="120" width="14" height="44" rx="7"/>
+    <rect x="206" y="92" width="14" height="72" rx="7"/>
+    <rect x="236" y="78" width="14" height="86" rx="7"/>
+    <rect x="266" y="96" width="14" height="68" rx="7"/>
+    <rect x="296" y="114" width="14" height="50" rx="7"/>
+    <rect x="326" y="100" width="14" height="64" rx="7"/>
+    <rect x="356" y="122" width="14" height="42" rx="7"/>
+    <rect x="386" y="134" width="14" height="30" rx="7"/>
+  </g>
+  <rect x="76" y="206" width="360" height="42" rx="16" fill="url(#coverTop)"/>
+  <circle cx="100" cy="227" r="6" fill="#475569"/>
+  <circle cx="412" cy="227" r="6" fill="#475569"/>
+  <rect x="82" y="242" width="348" height="64" rx="8" fill="url(#combGold)"/>
+  <g fill="#0b1120">
+    <rect x="104" y="256" width="22" height="36" rx="5"/>
+    <rect x="135" y="256" width="22" height="36" rx="5"/>
+    <rect x="166" y="256" width="22" height="36" rx="5"/>
+    <rect x="197" y="256" width="22" height="36" rx="5"/>
+    <rect x="228" y="256" width="22" height="36" rx="5"/>
+    <rect x="259" y="256" width="22" height="36" rx="5"/>
+    <rect x="290" y="256" width="22" height="36" rx="5"/>
+    <rect x="321" y="256" width="22" height="36" rx="5"/>
+    <rect x="352" y="256" width="22" height="36" rx="5"/>
+    <rect x="383" y="256" width="22" height="36" rx="5"/>
+  </g>
+  <rect x="197" y="256" width="22" height="36" rx="5" fill="#38bdf8" opacity="0.9"/>
+  <rect x="76" y="300" width="360" height="34" rx="14" fill="url(#coverTop)" opacity="0.92"/>
+  <circle cx="100" cy="317" r="5" fill="#475569"/>
+  <circle cx="412" cy="317" r="5" fill="#475569"/>
+  <circle cx="400" cy="400" r="36" fill="#0f172a" stroke="#f43f5e" stroke-width="4"/>
+  <circle cx="400" cy="400" r="18" fill="#f43f5e"/>
+  <rect x="128" y="388" width="188" height="24" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="152" cy="400" r="5" fill="#38bdf8"/>
+  <rect x="168" y="395" width="124" height="10" rx="5" fill="#94a3b8" opacity="0.7"/>
+</svg>
