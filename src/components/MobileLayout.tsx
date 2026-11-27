@@ -103,6 +103,7 @@ export interface MobileLayoutProps {
   metronomePluginEnabled: boolean;
   pluginMetronomePresets: PluginMetronomePreset[];
   onApplyMetronomePreset: (preset: PluginMetronomePreset) => void;
+  multitrackRackPluginEnabled: boolean;
   onToggleMetro: () => void;
   onChangeMetroBpm: (bpm: number) => void;
   onChangeMetroBeats: (beats: number) => void;
@@ -229,6 +230,7 @@ export const MobileLayout: React.FC<MobileLayoutProps> = (props) => {
     metronomePluginEnabled,
     pluginMetronomePresets,
     onApplyMetronomePreset,
+    multitrackRackPluginEnabled,
     onToggleMetro,
     onChangeMetroBpm,
     onChangeMetroBeats,
@@ -594,14 +596,16 @@ export const MobileLayout: React.FC<MobileLayoutProps> = (props) => {
               </div>
             </section>
 
-            <TrackListPanel
-              t={t}
-              tracks={tracks}
-              presets={allPresets}
-              onImportTrack={onImportTrackToRack}
-              onUpdateTrack={onUpdateTrack}
-              onDeleteTrack={onDeleteTrack}
-            />
+            {multitrackRackPluginEnabled && (
+              <TrackListPanel
+                t={t}
+                tracks={tracks}
+                presets={allPresets}
+                onImportTrack={onImportTrackToRack}
+                onUpdateTrack={onUpdateTrack}
+                onDeleteTrack={onDeleteTrack}
+              />
+            )}
           </>
         )}
 

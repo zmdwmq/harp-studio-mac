@@ -276,3 +276,8 @@
 - `package.json` 新增 `dist:mac` 脚本及 `build.mac` / `build.dmg` 配置（支持 Apple Silicon `arm64` 与 Intel `x64`，输出 `HarpStudio-${version}-${arch}.dmg`，与桌面 Windows 版统一为 `v0.35` / `0.35.0`）。
 - `electron/main.ts` 补充 macOS 首次启动麦克风权限请求（`systemPreferences.askForMediaAccess('microphone')`）。
 - 新增 `.github/workflows/mac-dmg.yml`：支持手动触发或推送 `v*` 标签时在 `macos-latest` 自动构建 `.dmg` / `.zip` 并附带至 GitHub Release。
+
+## [2026-11-27] feat | 将多轨叠录机架插件化（builtin.multitrack-rack v1.0.0）
+- `src/core/pluginSystem.ts` 与 `src/hooks/usePluginSystem.ts`：新增内置可开关插件 `BUILTIN_MULTITRACK_RACK_PLUGIN`（`builtin.multitrack-rack` `v1.0.0`），并暴露 `multitrackRackPluginEnabled`。
+- `src/App.tsx` 与 `src/components/MobileLayout.tsx`：桌面端（高级模式）与移动端均受 `multitrackRackPluginEnabled` 控制 `<TrackListPanel>` 显隐；停用仅隐藏面板，不清空底层 `AudioEngine` 已录制的音轨数据，单轨录制、试听与导出正常运作。
+- `src/core/__tests__/core.test.ts`：补充 `builtin.multitrack-rack` 开关单元测试；仅更新插件版本号，不递增主程序版本号。

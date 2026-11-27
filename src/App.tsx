@@ -182,6 +182,7 @@ export default function App() {
     pluginTabs,
     pluginMetronomePresets,
     metronomePluginEnabled,
+    multitrackRackPluginEnabled,
     pluginActions,
     persistUserPlugins,
     handleInstallPluginScript,
@@ -952,6 +953,7 @@ export default function App() {
           metronomePluginEnabled={metronomePluginEnabled}
           pluginMetronomePresets={pluginMetronomePresets}
           onApplyMetronomePreset={handleApplyMetronomePreset}
+          multitrackRackPluginEnabled={multitrackRackPluginEnabled}
           onToggleMetro={() => {
             const next = !metroEnabled;
             setMetroEnabled(next);
@@ -1230,7 +1232,7 @@ export default function App() {
           />
         )}
 
-        {uiMode === 'advanced' && (
+        {uiMode === 'advanced' && multitrackRackPluginEnabled && (
           <TrackListPanel
             t={t}
             tracks={tracks}

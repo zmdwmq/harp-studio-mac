@@ -412,6 +412,16 @@ export const BUILTIN_METRONOME_PLUGIN: HarpStudioPlugin = {
   ],
 };
 
+/** 内置示例插件 5：可开关多轨叠录机架模块 */
+export const BUILTIN_MULTITRACK_RACK_PLUGIN: HarpStudioPlugin = {
+  id: 'builtin.multitrack-rack',
+  name: '多轨叠录机架与分轨混音',
+  version: '1.0.0',
+  author: 'HarpStudio Official',
+  description: '控制桌面端与移动端多轨叠录机架显隐；停用仅隐藏面板，不清空已录制的音轨数据',
+  isBuiltin: true,
+};
+
 const REQUIRED_THEME_VARS: (keyof PluginTheme['vars'])[] = [
   'bg',
   'panel',

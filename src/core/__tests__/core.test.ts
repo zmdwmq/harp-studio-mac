@@ -365,4 +365,18 @@ describe('pluginSystem', () => {
     expect(pm.getEnabledPlugins().some((p) => p.id === BUILTIN_METRONOME_PLUGIN.id)).toBe(false);
     expect(pm.getEnabledMetronomePresets()).toHaveLength(0);
   });
+
+  it('registers and toggles builtin.multitrack-rack', async () => {
+    const { PluginManager, BUILTIN_MULTITRACK_RACK_PLUGIN } = await import('../pluginSystem');
+    const pm = new PluginManager();
+    pm.register(BUILTIN_MULTITRACK_RACK_PLUGIN, true);
+    expect(
+      pm.getEnabledPlugins().some((p) => p.id === BUILTIN_MULTITRACK_RACK_PLUGIN.id)
+    ).toBe(true);
+
+    pm.setEnabled(BUILTIN_MULTITRACK_RACK_PLUGIN.id, false);
+    expect(
+      pm.getEnabledPlugins().some((p) => p.id === BUILTIN_MULTITRACK_RACK_PLUGIN.id)
+    ).toBe(false);
+  });
 });

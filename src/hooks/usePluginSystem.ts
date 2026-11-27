@@ -2,6 +2,7 @@ import React from 'react';
 import {
   BUILTIN_FOLLOW_ALONG_PLUGIN,
   BUILTIN_METRONOME_PLUGIN,
+  BUILTIN_MULTITRACK_RACK_PLUGIN,
   BUILTIN_THEME_PACK_PLUGIN,
   BUILTIN_TONE_PACK_PLUGIN,
   PluginManager,
@@ -27,6 +28,7 @@ export function usePluginSystem(setStatusMsg: (msg: string) => void) {
     pm.register(BUILTIN_THEME_PACK_PLUGIN, true);
     pm.register(BUILTIN_FOLLOW_ALONG_PLUGIN, true);
     pm.register(BUILTIN_METRONOME_PLUGIN, true);
+    pm.register(BUILTIN_MULTITRACK_RACK_PLUGIN, true);
     pm.register(createAccuracyTrackerPlugin().plugin, true);
     for (const cp of loadCommunityPlugins()) {
       pm.register(cp, true);
@@ -102,6 +104,11 @@ export function usePluginSystem(setStatusMsg: (msg: string) => void) {
   const metronomePluginEnabled = React.useMemo(
     () =>
       pluginEntries.some((e) => e.plugin.id === BUILTIN_METRONOME_PLUGIN.id && e.enabled),
+    [pluginEntries]
+  );
+  const multitrackRackPluginEnabled = React.useMemo(
+    () =>
+      pluginEntries.some((e) => e.plugin.id === BUILTIN_MULTITRACK_RACK_PLUGIN.id && e.enabled),
     [pluginEntries]
   );
   const pluginActions = React.useMemo(
@@ -193,6 +200,7 @@ export function usePluginSystem(setStatusMsg: (msg: string) => void) {
     pluginTabs,
     pluginMetronomePresets,
     metronomePluginEnabled,
+    multitrackRackPluginEnabled,
     pluginActions,
     persistUserPlugins,
     handleInstallPluginScript,
